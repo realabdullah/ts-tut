@@ -59,22 +59,25 @@ const addUID = <T extends object>(obj: T) => {
 
 const exampleOne = addUID({name: "ABD"});
 
+// ENUMS
+enum bullNumber { ADD, SUB, PEN, BED }
+
 // GENERICS with INTERFACE
 
 interface GenericExample <T> {
     uid: number;
-    bullName: string;
+    bullNumber: number;
     data: T;
 }
 
 const stringExample: GenericExample<string> = {
     uid: 1234,
-    bullName: "sdfgnhdfv sdfhj",
+    bullNumber: bullNumber.SUB,
     data: "has to be a string sha"
 }
 
 const numberExample: GenericExample<number> = {
     uid: 2345,
-    bullName: "asdfg",
+    bullNumber: bullNumber.ADD,
     data: 9,
 }

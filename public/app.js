@@ -39,13 +39,21 @@ const addUID = (obj) => {
     return Object.assign(Object.assign({}, obj), { uid });
 };
 const exampleOne = addUID({ name: "ABD" });
+// ENUMS
+var bullNumber;
+(function (bullNumber) {
+    bullNumber[bullNumber["ADD"] = 0] = "ADD";
+    bullNumber[bullNumber["SUB"] = 1] = "SUB";
+    bullNumber[bullNumber["PEN"] = 2] = "PEN";
+    bullNumber[bullNumber["BED"] = 3] = "BED";
+})(bullNumber || (bullNumber = {}));
 const stringExample = {
     uid: 1234,
-    bullName: "sdfgnhdfv sdfhj",
+    bullNumber: bullNumber.SUB,
     data: "has to be a string sha"
 };
 const numberExample = {
     uid: 2345,
-    bullName: "asdfg",
+    bullNumber: bullNumber.ADD,
     data: 9,
 };
