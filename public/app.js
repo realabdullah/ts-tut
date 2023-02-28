@@ -26,10 +26,12 @@ const list = new OutputTemplate(ul);
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     let formData;
+    let values;
+    values = [toFrom.value, details.value, amount.valueAsNumber];
     formData =
         type.value === "invoice"
-            ? new Invoice(toFrom.value, details.value, amount.valueAsNumber)
-            : new Payment(toFrom.value, details.value, amount.valueAsNumber);
+            ? new Invoice(...values)
+            : new Payment(...values);
     console.log(formData);
     list.render(formData, type.value, "bottom");
 });
@@ -57,3 +59,6 @@ const numberExample = {
     bullNumber: bullNumber.ADD,
     data: 9,
 };
+// TUPLES
+let tuple;
+tuple = ["abd", 33, true];

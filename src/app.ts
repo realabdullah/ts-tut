@@ -39,10 +39,13 @@ form.addEventListener("submit", (e: Event) => {
 	e.preventDefault();
 
 	let formData: HasOutputString;
+    let values: [string, string, number];
+    values = [toFrom.value, details.value, amount.valueAsNumber];
+
 	formData =
 		type.value === "invoice"
-			? new Invoice(toFrom.value, details.value, amount.valueAsNumber)
-			: new Payment(toFrom.value, details.value, amount.valueAsNumber);
+			? new Invoice(...values)
+			: new Payment(...values);
 
 	console.log(formData);
 
@@ -63,7 +66,6 @@ const exampleOne = addUID({name: "ABD"});
 enum bullNumber { ADD, SUB, PEN, BED }
 
 // GENERICS with INTERFACE
-
 interface GenericExample <T> {
     uid: number;
     bullNumber: number;
@@ -81,3 +83,7 @@ const numberExample: GenericExample<number> = {
     bullNumber: bullNumber.ADD,
     data: 9,
 }
+
+// TUPLES
+let tuple: [string, number, boolean];
+tuple = ["abd", 33, true];
