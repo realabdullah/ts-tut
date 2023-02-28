@@ -33,3 +33,19 @@ form.addEventListener("submit", (e) => {
     console.log(formData);
     list.render(formData, type.value, "bottom");
 });
+// GENERICS
+const addUID = (obj) => {
+    const uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+const exampleOne = addUID({ name: "ABD" });
+const stringExample = {
+    uid: 1234,
+    bullName: "sdfgnhdfv sdfhj",
+    data: "has to be a string sha"
+};
+const numberExample = {
+    uid: 2345,
+    bullName: "asdfg",
+    data: 9,
+};

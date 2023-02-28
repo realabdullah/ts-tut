@@ -48,3 +48,33 @@ form.addEventListener("submit", (e: Event) => {
 
 	list.render(formData, type.value, "bottom");
 });
+
+
+// GENERICS
+
+const addUID = <T extends object>(obj: T) => {
+    const uid = Math.floor(Math.random() * 100);
+    return { ...obj, uid };
+}
+
+const exampleOne = addUID({name: "ABD"});
+
+// GENERICS with INTERFACE
+
+interface GenericExample <T> {
+    uid: number;
+    bullName: string;
+    data: T;
+}
+
+const stringExample: GenericExample<string> = {
+    uid: 1234,
+    bullName: "sdfgnhdfv sdfhj",
+    data: "has to be a string sha"
+}
+
+const numberExample: GenericExample<number> = {
+    uid: 2345,
+    bullName: "asdfg",
+    data: 9,
+}
