@@ -1,6 +1,7 @@
 import { Invoice } from "./classes/invoice.js";
 import { Payment } from "./classes/payments.js";
 import { HasOutputString } from "./interfaces/interface.js";
+import { OutputTemplate } from "./classes/outputTemplate.js";
 
 // declaring variables of HasOutputString Inteface
 let invoiceOne: HasOutputString;
@@ -30,6 +31,10 @@ const toFrom = document.querySelector("#tofrom") as HTMLInputElement;
 const details = document.querySelector("#details") as HTMLInputElement;
 const amount = document.querySelector("#amount") as HTMLInputElement;
 
+// UL OUTPUT LIST
+const ul = document.querySelector("ul")!;
+const list = new OutputTemplate(ul);
+
 form.addEventListener("submit", (e: Event) => {
 	e.preventDefault();
 
@@ -40,4 +45,6 @@ form.addEventListener("submit", (e: Event) => {
 			: new Payment(toFrom.value, details.value, amount.valueAsNumber);
 
 	console.log(formData);
+
+	list.render(formData, type.value, "bottom");
 });
